@@ -1,12 +1,13 @@
 library(shiny)
+library(ggplot2)
 #library(leaflet)
 
 ui <- fluidPage(
-  uiOutput("mortality_map")
+  plotOutput("plotz")
 )
 
 server <- function(input, output, session) {
-  output$mortality_map <- renderUI({
+  output$plotz <- renderPlot({
     #leafletOutput("map")
     
     lat <- 30.368254
@@ -28,3 +29,4 @@ server <- function(input, output, session) {
 }
 
 shinyApp(ui, server)
+  
